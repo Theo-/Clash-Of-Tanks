@@ -14,13 +14,18 @@ import com.TH.ge.mainCore.State;
 public class GameState extends State {
 	private BufferedImage map;
 	private ArrayList<Block> blocks;
+	private ArrayList<Rocket> rockets;
 	
 	private Team red;
 	private Team blue;
 
 	public GameState(AppContainer ac) {
 		super(ac);
+		Var.gs = this;
 		Var.ac = ac;
+		
+		this.rockets = new ArrayList<Rocket>();
+		this.blocks = new ArrayList<Block>();
 		
 		red = new Team(false, new Script("s1.tank"));
 		blue = new Team(true, new Script("s2.tank"));
@@ -32,6 +37,12 @@ public class GameState extends State {
 	public void update(AppContainer app, State state) {
 		red.update();
 		blue.update();
+		
+		for(Rocket r : rockets) {
+			ArrayList<Tank> l = red.getTanks();
+			l.addAll(blue.getTanks());
+			r.update(l);
+		}
     }
 
     public void draw(AppContainer container, State state, Graphics g) {
@@ -40,9 +51,22 @@ public class GameState extends State {
     	
 		red.render(g);
 		blue.render(g);
+		
+		for(Rocket r : rockets) {
+			r.drawEntity(g);
+		}
     }
     
-    public void onEvent(String name, Object param) {
+    
+    public ArrayList<Rocket> getRockets() {
+		return rockets;
+	}
+
+	public void setRockets(ArrayList<Rocket> rockets) {
+		this.rockets = rockets;
+	}
+
+	public void onEvent(String name, Object param) {
     	
     }
     /**

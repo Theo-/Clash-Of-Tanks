@@ -10,7 +10,7 @@ import java.awt.image.BufferedImage;
 
 public class Entity {
 	public Vector2D position;
-	public BufferedImage image;
+	public Image image;
 	
 	public double angle = 0; // In radians
 	
@@ -27,7 +27,7 @@ public class Entity {
 		g2d.drawImage(op.filter(image, null), (int)position.x, (int)position.y, null);*/
 		
         g2d.translate(position.x, position.y); // Translate the center of our coordinates.
-        g2d.rotate(angle, image.getWidth()/2, image.getHeight()/2);  // Rotate the image by 1 radian.
+        g2d.rotate(angle, image.getWidth(null)/2, image.getHeight(null)/2);  // Rotate the image by 1 radian.
         g2d.drawImage(image, 0,0, null);
         g2d.dispose();	
 	}
@@ -40,7 +40,7 @@ public class Entity {
 		this.position = position;
 	}
 
-	public BufferedImage getImage() {
+	public Image getImage() {
 		return image;
 	}
 

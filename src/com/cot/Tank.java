@@ -19,12 +19,25 @@ public class Tank extends Entity {
 		try {
 		    this.image = ImageIO.read(new File("resources/"+(team.isBlue() ? "blue" : "red")+"_tank.png"));
 		} catch (IOException e) {
-			
+			// Cannot load image
 		}
 	}
 	
 	public void resetPA() {
 		this.PA = 1;
+	}
+	
+	public void fire() {
+		if(canAct()) {
+			Rocket r = new Rocket(this.position, new Vector2D(
+				Math.cos(this.angle),
+				Math.sin(this.angle)
+			));
+			
+			Var.gs.getRockets().add(r);
+			
+			this.usePA();
+		}
 	}
 	
 	public void move() {

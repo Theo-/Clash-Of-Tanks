@@ -14,6 +14,7 @@ public class Script {
 			//tank.move();
 			
 			//tank.turn();
+			tank.fire();
 		}
 	}
 }
