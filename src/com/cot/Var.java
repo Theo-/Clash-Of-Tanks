@@ -1,4 +1,4 @@
-package com.theoszymkowiak;
+package com.cot;
 
 import com.TH.ge.mainCore.AppContainer;
 

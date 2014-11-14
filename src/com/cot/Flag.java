@@ -1,4 +1,4 @@
-package com.theoszymkowiak;
+package com.cot;
 
 import java.awt.Point;
 import java.io.File;

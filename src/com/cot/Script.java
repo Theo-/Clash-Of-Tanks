@@ -1,4 +1,4 @@
-package com.theoszymkowiak;
+package com.cot;
 
 public class Script {
 	public void update(Team t) {
