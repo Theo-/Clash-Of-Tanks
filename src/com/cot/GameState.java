@@ -22,8 +22,8 @@ public class GameState extends State {
 		super(ac);
 		Var.ac = ac;
 		
-		red = new Team(false, new Script());
-		blue = new Team(true, new Script());
+		red = new Team(false, new Script("s1.tank"));
+		blue = new Team(true, new Script("s2.tank"));
 		
 		ac.getWindow().setSize(new Dimension(1000,600));
 		// TODO Auto-generated constructor stub

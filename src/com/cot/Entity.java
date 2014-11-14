@@ -26,8 +26,8 @@ public class Entity {
 		// Drawing the rotated image at the required drawing locations
 		g2d.drawImage(op.filter(image, null), (int)position.x, (int)position.y, null);*/
 		
-        g2d.translate(position.x-(image.getWidth())*(Math.sin(angle)), position.y-(image.getHeight()/2)*Math.cos(angle)); // Translate the center of our coordinates.
-        g2d.rotate(angle);  // Rotate the image by 1 radian.
+        g2d.translate(position.x, position.y); // Translate the center of our coordinates.
+        g2d.rotate(angle, image.getWidth()/2, image.getHeight()/2);  // Rotate the image by 1 radian.
         g2d.drawImage(image, 0,0, null);
         g2d.dispose();	
 	}
